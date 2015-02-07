@@ -71,10 +71,11 @@
 //! ```
 
 #![feature(slicing_syntax)]
-#![allow(unstable)]
+#![feature(io)]
+#![feature(core)]
 
 extern crate lzf;
-extern crate serialize;
+extern crate "rustc-serialize" as serialize;
 extern crate regex;
 
 #[doc(hidden)]

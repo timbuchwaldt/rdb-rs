@@ -31,7 +31,7 @@ impl JSON {
 
 fn encode_to_ascii(value: &[u8]) -> String {
     let s = unsafe{str::from_utf8_unchecked(value)};
-    json::encode(&s)
+    json::encode(&s).unwrap()
 }
 
 impl JSON {
@@ -55,10 +55,10 @@ impl JSON {
     }
 
     fn write_key(&mut self, key: &[u8]) {
-        self.out.write(encode_to_ascii(key).as_bytes());
+        self.out.write_all(encode_to_ascii(key).as_bytes());
     }
     fn write_value(&mut self, value: &[u8]) {
-        self.out.write(encode_to_ascii(value).as_bytes());
+        self.out.write_all(encode_to_ascii(value).as_bytes());
     }
 }
 

@@ -2,7 +2,7 @@ use std::old_io::IoError;
 
 use constants::encoding_type;
 
-#[derive(Show,Clone)]
+#[derive(Debug,Clone)]
 pub enum ZiplistEntry {
     String(Vec<u8>),
     Number(i64),
@@ -14,7 +14,7 @@ pub type RdbResult<T> = Result<T, RdbError>;
 
 pub type RdbOk = RdbResult<()>;
 
-#[derive(Copy,PartialEq)]
+#[derive(Debug,Copy,PartialEq)]
 pub enum Type {
     String,
     List,
